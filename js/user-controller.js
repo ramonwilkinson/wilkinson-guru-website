@@ -41,7 +41,7 @@ var userController = {
       //    this.getUserProfile(accessToken, idToken);
       //}
 
-      var url = that.data.config.apiBaseUrl + '/awsTagline';
+      var url = this.data.config.apiBaseUrl + '/awsTagline';
       $.get(url, data).done(function (data, status) {
         // save user profile data in the modal
         this.uiElements.taglineLabel.text(JSON.stringify(data, null, 2));
