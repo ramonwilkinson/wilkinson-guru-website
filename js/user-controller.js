@@ -126,7 +126,7 @@ var userController = {
               alert('Can\'t retreive user information');
               button.button('reset');
               console.error(error);
-          });*/
-      });
+          });
+      });*/
   }
 };
