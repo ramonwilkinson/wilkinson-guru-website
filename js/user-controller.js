@@ -19,8 +19,8 @@ var userController = {
       //this.uiElements.profileImage = $('#profilepicture');
       //this.uiElements.uploadButton = $('#upload-video-button');
 
-      /*this.data.config = config;
-      var params = {
+      this.data.config = config;
+      /*var params = {
           autoclose: true,
           auth: {
               params: {
