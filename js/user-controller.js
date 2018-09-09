@@ -46,10 +46,10 @@ var userController = {
       jQuery.get(url).done(function (data, status) {
         // save user profile data in the modal
         //this.uiElements.taglineLabel.textContent(data.aws_tagline);
-        $('#tagline').textContent(data.aws_tagline);
+        $('#tagline').textContent = data.aws_tagline;
       }).fail(function (error) {
         //this.uiElements.taglineLabel.textContent("default...");
-        $('#tagline').textContent('default...');  
+        $('#tagline').textContent = 'default...';  
         console.error(error);
       });
 
