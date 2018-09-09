@@ -45,7 +45,7 @@ var userController = {
       
       jQuery.get(url).done(function (data, status) {
         // save user profile data in the modal
-        this.uiElements.taglineLabel.text(JSON.stringify(data, null, 2));
+        this.uiElements.taglineLabel.text(data.awsTagline);
       }).fail(function (error) {
         this.uiElements.taglineLabel.text("default...");
         console.error(error);
