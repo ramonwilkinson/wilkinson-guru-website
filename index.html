@@ -111,7 +111,7 @@
                 <hr class="my-4">
                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
                 <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                  <a class="btn btn-primary btn-lg" href="#" role="button" onclick="myFunction()">Learn more</a>
                 </p>
               </div>
             </div>
@@ -139,6 +139,15 @@
     <script src="js/user-controller.js"></script>
     <script src="js/config.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      function myFunction() {
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var c = url.searchParams.get("id_token");
+        console.log(c);
+      }
+    </script>
 
     <!--  
     <script src="../_vendor/jquery/dist/jquery.min.js"></script>
