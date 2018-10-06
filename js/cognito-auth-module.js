@@ -16,6 +16,9 @@ var cognitoAuth = (function () {
   return {
     init: function(){
       userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+      
+      //hack for now
+      this.signin('','')
     },
 
     signin: function(username, password){
@@ -49,6 +52,10 @@ var cognitoAuth = (function () {
             alert(err);
         }
       })
+    },
+
+    getIdToken: function(){
+      return idToken;
     }
   }
 })();
