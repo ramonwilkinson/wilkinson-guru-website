@@ -43,22 +43,27 @@ var userController = {
 
       var url = this.data.config.apiBaseUrl + '/awsTagline';
       
-      jQuery.ajaxSetup({
-        headers:{
-          'Authorization':cognitoAuth.getIdToken()
-        }
-      });
+      setTimeout(function(){
+        
       
-      jQuery.get(url).done(function (data, status) {
-        // save user profile data in the modal
-        //this.uiElements.taglineLabel.textContent(data.aws_tagline);
-        $('#tagline')[0].innerHTML = data.aws_tagline;
-      }).fail(function (error) {
-        //this.uiElements.taglineLabel.textContent("default...");
-        $('#tagline')[0].innerHTML = 'default...';  
-        console.error(error);
-      });
-
+      
+            jQuery.ajaxSetup({
+                headers:{
+                'Authorization':cognitoAuth.getIdToken()
+                }
+            });
+            
+            jQuery.get(url).done(function (data, status) {
+                // save user profile data in the modal
+                //this.uiElements.taglineLabel.textContent(data.aws_tagline);
+                $('#tagline')[0].innerHTML = data.aws_tagline;
+            }).fail(function (error) {
+                //this.uiElements.taglineLabel.textContent("default...");
+                $('#tagline')[0].innerHTML = 'default...';  
+                console.error(error);
+            });
+        }, 10000);
+    
   },/*
   configureAuthenticatedRequests: function () {
       $.ajaxSetup({
