@@ -1,10 +1,7 @@
 
-//var cognitoAuthGlobals = window.cognitoAuthGlobals || {};
-
 var cognitoAuth = (function () {
     
   // Private variables/methods ------------------------------------------------
-
   var poolData = { 
     UserPoolId : 'us-east-1_PAUCl3r7z',
     ClientId : '1mrpnvhboldoh5pck00gk60ama'

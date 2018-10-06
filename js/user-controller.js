@@ -43,6 +43,12 @@ var userController = {
 
       var url = this.data.config.apiBaseUrl + '/awsTagline';
       
+      jQuery.ajaxSetup({
+        headers:{
+          'Authorization':cognitoAuth.getIdToken()
+        }
+      });
+      
       jQuery.get(url).done(function (data, status) {
         // save user profile data in the modal
         //this.uiElements.taglineLabel.textContent(data.aws_tagline);
