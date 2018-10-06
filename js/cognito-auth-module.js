@@ -1,5 +1,5 @@
 
-var cognitoAuthGlobals = window.cognitoAuthGlobals || {};
+//var cognitoAuthGlobals = window.cognitoAuthGlobals || {};
 
 var cognitoAuth = (function () {
     
@@ -11,10 +11,14 @@ var cognitoAuth = (function () {
   };
   var region = 'us-east-1';
 
+  var userPool;
+  var accessToken;
+  var idToken;
+
   // Public methods -----------------------------------------------------------
   return {
     init: function(){
-      cognitoAuthGlobals.userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+      userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
     },
 
     signin: function(username, password){
@@ -29,19 +33,19 @@ var cognitoAuth = (function () {
       
       var userData = {
           Username : authenticationData.Username,
-          Pool : cognitoAuthGlobals.userPool
+          Pool : userPool
       };
 
       var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
       
       cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
-          cognitoAuthGlobals.accessToken = result.getAccessToken().getJwtToken();
+          accessToken = result.getAccessToken().getJwtToken();
             
           /* Use the idToken for Logins Map when Federating User Pools with 
              identity pools or when passing through an Authorization Header 
              to an API Gateway Authorizer*/
-          cognitoAuthGlobals.idToken = result.idToken.jwtToken;
+          idToken = result.idToken.jwtToken;
         },
 
         onFailure: function(err) {
